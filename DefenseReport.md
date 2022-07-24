@@ -8,6 +8,7 @@
 - Suggestions for Going Further
 
 ### Network Topology
+![FinalProjectTopology](https://user-images.githubusercontent.com/96210254/180628348-90323f05-a311-47e1-9ba3-4e7d56cf5c21.png)  
 The following machines were identified on the network:
 - ELK
   - **Operating System**: Linux
