@@ -8,7 +8,7 @@ You will then report back all your findings to both the SOC manager and the Engi
 
 ## Red Team: Summary of Operations
 This is the report for the penetration testing of Target 1.  
-The report can be view [here](https://github.com/danclarkrivera/CS-FinalProject/blob/main/OffensiveReport.md)
+[Offensive Report](https://github.com/danclarkrivera/CS-FinalProject/blob/main/OffensiveReport.md)
 #### Table of Contents
 - Exposed Services
 - Critical Vulnerabilities
