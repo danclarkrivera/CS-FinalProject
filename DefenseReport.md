@@ -66,24 +66,28 @@ Traffic to these services should be carefully monitored. To this end, we have im
 ![image](https://user-images.githubusercontent.com/96210254/180620767-611dd637-d6d1-4a1b-9d85-fb72d40c6cac.png)
 
 
-#### Name of Alert 3
-Alert 3 is implemented as follows:
-  - **Metric**: TODO
-  - **Threshold**: TODO
-  - **Vulnerability Mitigated**: TODO
-  - **Reliability**: TODO: Does this alert generate lots of false positives/false negatives? Rate as low, medium, or high reliability.
+#### CPU Usage Monitor
+`CPU Usage Monitor` is implemented as follows:
+  - **Metric**: metricbeat
+  - **Threshold**: Max of `system.process.cpu.total.pct` above `0.5` for the last `5` minutes
+  - **Vulnerability Mitigated**: Denial of Service, CPU Overusage
+  - **Reliability**: Low Reliability, this alert will indicate when the CPU goes above 50% utilization. There will be many False Positives as there are many reasons a machine may go above 50% CPU utilization for legitimate system processes and workload.  
+![image](https://user-images.githubusercontent.com/96210254/180627474-724e66ed-a984-49dc-a437-9d53571d1cef.png)
 
-### Suggestions for Going Further (Optional)
-_TODO_: 
-- Each alert above pertains to a specific vulnerability/exploit. Recall that alerts only detect malicious behavior, but do not stop it. For each vulnerability/exploit identified by the alerts above, suggest a patch. E.g., implementing a blocklist is an effective tactic against brute-force attacks. It is not necessary to explain _how_ to implement each patch.
-
+### Suggestions for Going Further
 The logs and alerts generated during the assessment suggest that this network is susceptible to several active threats, identified by the alerts above. In addition to watching for occurrences of such threats, the network should be hardened against them. The Blue Team suggests that IT implement the fixes below to protect the network:
-- Vulnerability 1
-  - **Patch**: TODO: E.g., _install `special-security-package` with `apt-get`_
-  - **Why It Works**: TODO: E.g., _`special-security-package` scans the system for viruses every day_
-- Vulnerability 2
-  - **Patch**: TODO: E.g., _install `special-security-package` with `apt-get`_
-  - **Why It Works**: TODO: E.g., _`special-security-package` scans the system for viruses every day_
-- Vulnerability 3
-  - **Patch**: TODO: E.g., _install `special-security-package` with `apt-get`_
-  - **Why It Works**: TODO: E.g., _`special-security-package` scans the system for viruses every day_
+- Open SSH Port (Port 22)
+  - **Patch**: Remove SSH Port access or utilize a whitelist of known and approved ip addresses via Port 22
+  - **Why It Works**: Using a whitelist will ensure that only ip addresses that have been permitted to use the port will be able to.
+- Weak Passwords
+  - **Patch**: Update password complexity policies and user training.
+  - **Why It Works**: As bruteforce attempts get quicker a more complex and difficult password is needed. Updating the password complexity policies for the company and training the user on proper password usage will mitigate bruteforcing and guessing of passwords.
+- Wordpress Enumeration Vulnerability
+  - **Patch**: Utilize the "[WP Hardening](https://wordpress.org/plugins/wp-security-hardening/)" plugin in WordPress.
+  - **Why It Works**: This is a plugin designed for WordPress to stop user enumeration.
+- Wordpress and SQL Database Vulnerability
+  - **Patch**: Encrypt the `wp-config.php` file.
+  - **Why It Works**: As the `wp-config.php` contains plaintext sensitive data about the SQL database encrypting the file will hash the plaintext data and protect it from attackers.
+- Wordpress XML-RPC Vulnerabilites
+  - **Patch**: Utilize the "[WP Hardening](https://wordpress.org/plugins/wp-security-hardening/)" plugin in WordPress.
+  - **Why It Works**: The same plugin as earlier, the plugin also comes built with a module to disable XMLRPC. If the plugin is not used a filter can disable XMLRPC as well. Use `add_filter( 'xmlrpc_enabled', '_return_false' );`
