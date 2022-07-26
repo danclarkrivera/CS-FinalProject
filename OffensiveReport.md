@@ -73,8 +73,6 @@ The following vulnerabilities were identified on each target:
 ![image](https://user-images.githubusercontent.com/96210254/180623323-3925e048-9201-4b2c-a2b5-d23009f8e76c.png)
 
 ### Exploitation
-_TODO: Fill out the details below. Include screenshots where possible._
-
 The Red Team was able to penetrate `Target 1` and retrieve the following confidential data:
 - Target 1
   - `flag1.txt`: b9bbcb33e11b80be759c4e844862482d
