@@ -28,6 +28,6 @@ This is the report for the hardening and monitoring of Target 1.
 This is the Analysis of the network traffic that was taken for review.  
 [Network Analysis](https://github.com/danclarkrivera/CS-FinalProject/blob/main/NetworkAnalysis.md)
 #### Table of Contents
-Time Thieves
-Vulnerable Windows Machines
-Illegal Downloads
+- Time Thieves
+- Vulnerable Windows Machines
+- Illegal Downloads
