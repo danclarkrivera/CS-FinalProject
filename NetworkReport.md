@@ -60,3 +60,29 @@ As a bonus, retrieve the desktop background of the Windows host.
   - After exporting the files `empty.gif?ss&ss1img` and `empty.gif?ss&ss2img` they are both an image of a seagull.
   ![image](https://user-images.githubusercontent.com/96210254/180918612-3e14ee24-229c-4623-81d9-fbf4f770eeed.png)
 
+## Illegal Downloads
+IT was informed that some users are torrenting on the network. The Security team does not forbid the use of torrents for legitimate purposes, such as downloading operating systems. However, they have a strict policy against copyright infringement.  
+IT shared the following about the torrent activity:
+
+- The machines using torrents live in the range 10.0.0.0/24 and are clients of an AD domain.
+- The DC of this domain lives at 10.0.0.2 and is named DogOfTheYear-DC.
+- The DC is associated with the domain dogoftheyear.net.
+
+Your task is to isolate torrent traffic and answer the following questions in your Network Report:
+
+
+1. Find the following information about the machine with IP address 10.0.0.201:
+    - MAC address: 00:16:17:18:66:c8
+    - Windows username: elmer.blanco
+    - OS version: Windows NT 10.0; Win64; x64
+    - Using the same filter pattern a filter was made to for the `10.0.0.201` IP and to find the Kerberos CName. Able to find that this the `BLANCO-DESKTOP` machine.
+    ![image](https://user-images.githubusercontent.com/96210254/180919770-c31f9c3a-2d9b-4230-9115-7fb98b228c89.png)  
+    - Further searching found that the user's name is Elmer Blanco
+    ![image](https://user-images.githubusercontent.com/96210254/180920630-97d9d7cc-b47f-4d01-bebd-b49d6e14d065.png)  
+    - Reviewing the HTTP requests at `10.0.0.201`, the Operating System information was found
+    ![image](https://user-images.githubusercontent.com/96210254/180920716-b6dc0f3e-4bad-4623-a2a3-76cdbc7b48cf.png)  
+
+2. Which torrent file did the user download?
+    - By using the previous filter, one that is set up to view any http requests from `10.0.0.201`.
+    - After reviewing the entries there was a download.php file that was done for the file `Betty_Boop_Rhythm_on_the_Reservation.avi.torrent` from the host `www.publicdomaintorrents.com`
+    ![image](https://user-images.githubusercontent.com/96210254/180921463-862ebce6-0dc7-4063-a524-76df521ed593.png)
