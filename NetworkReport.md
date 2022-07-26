@@ -1,4 +1,10 @@
 # Network Analysis
+
+## Table of Contents
+- Time Thieves
+- Vulnerable Windows Machines
+- Illegal Downloads
+
 ## Time Thieves
 At least two users on the network have been wasting time on YouTube. Usually, IT wouldn't pay much mind to this behavior, but it seems these people have created their own web server on the corporate network. So far, Security knows the following about these time thieves:  
 - They have set up an Active Directory network.  
@@ -69,7 +75,6 @@ IT shared the following about the torrent activity:
 - The DC is associated with the domain dogoftheyear.net.
 
 Your task is to isolate torrent traffic and answer the following questions in your Network Report:
-
 
 1. Find the following information about the machine with IP address 10.0.0.201:
     - MAC address: 00:16:17:18:66:c8
